@@ -12,7 +12,7 @@ cargo run --release &
 SERVER=$!
 popd
 
-bash time_release
+bash timerelease.sh
 
 # Login again to pass oauth to the client
 python3 scripts/tee.py
