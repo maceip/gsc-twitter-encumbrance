@@ -31,6 +31,7 @@ WORKDIR /workdir
 # Copy the real files
 COPY scripts/ ./scripts/
 COPY client/ ./client/
+COPY nousflash/agent/ ./agent/
 COPY .env ./
 COPY run.sh ./
 
