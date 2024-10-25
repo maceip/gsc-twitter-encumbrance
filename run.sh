@@ -3,7 +3,7 @@ set -e
 
 # Encumber the account
 #export TWITTER_PASSWORD=$(python3 scripts/twitter.py)
-. .env
+. private.env
 export TWITTER_PASSWORD
 
 # Start the tweeting client

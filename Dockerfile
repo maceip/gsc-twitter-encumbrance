@@ -32,7 +32,7 @@ WORKDIR /workdir
 COPY scripts/ ./scripts/
 COPY client/ ./client/
 COPY nousflash/agent/ ./agent/
-COPY .env ./
+COPY private.env ./
 COPY run.sh ./
 
 WORKDIR client/
