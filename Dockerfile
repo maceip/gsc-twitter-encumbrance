@@ -6,7 +6,7 @@ RUN apt-get install -y curl
 
 RUN curl -LO https://freeshell.de/phd/chromium/jammy/pool/chromium_130.0.6723.58~linuxmint1+virginia/chromium_130.0.6723.58~linuxmint1+virginia_amd64.deb
 RUN apt-get install -y ./chromium_130.0.6723.58~linuxmint1+virginia_amd64.deb
-RUN apt-get install -y libasound2
+RUN apt-get install -y libasound2 jq libssl-dev 
 
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
@@ -16,6 +16,7 @@ RUN apt-get install -y pkg-config libssl-dev
 WORKDIR /workdir
 ENV PYTHONUNBUFFERED=1
 
+COPY timerelease.sh .
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
@@ -31,7 +32,6 @@ WORKDIR /workdir
 # Copy the real files
 COPY scripts/ ./scripts/
 COPY client/ ./client/
-COPY nousflash/agent/ ./agent/
 COPY private.env ./
 COPY run.sh ./
 
